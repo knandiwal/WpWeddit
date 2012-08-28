@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- This file is auto-generated, do not edit! -jm -->
+<CordovaSourceDictionary>
+    <FilePath Value="www\index.html"/>
+    <FilePath Value="www\js\index.js"/>
+    <FilePath Value="www\js\redditengine.js"/>
+    <FilePath Value="www\lib\backbone.js"/>
+    <FilePath Value="www\lib\backbone.localStorage.js"/>
+    <FilePath Value="www\lib\handlebars-1.0.0.beta.6.js"/>
+    <FilePath Value="www\lib\jquery-1.7.2.js"/>
+    <FilePath Value="www\lib\jquery.mobile-1.1.1\jquery.mobile-1.1.1.css"/>
+    <FilePath Value="www\lib\jquery.mobile-1.1.1\jquery.mobile-1.1.1.js"/>
+    <FilePath Value="www\lib\jquery.mobile-1.1.1\jquery.mobile-1.1.1.min.css"/>
+    <FilePath Value="www\lib\jquery.mobile-1.1.1\jquery.mobile-1.1.1.min.js"/>
+    <FilePath Value="www\lib\jquery.mobile-1.1.1\jquery.mobile.structure-1.1.1.css"/>
+    <FilePath Value="www\lib\jquery.mobile-1.1.1\jquery.mobile.structure-1.1.1.min.css"/>
+    <FilePath Value="www\lib\jquery.mobile-1.1.1\jquery.mobile.theme-1.1.1.css"/>
+    <FilePath Value="www\lib\jquery.mobile-1.1.1\jquery.mobile.theme-1.1.1.min.css"/>
+    <FilePath Value="www\lib\underscore.js"/>
+    <FilePath Value="www\cordova-2.0.0.js"/>
+    <FilePath Value="www\css\index.css"/>
+    <FilePath Value="www\img\cordova.png"/>
+    <FilePath Value="www\index_o.html"/>
+</CordovaSourceDictionary>

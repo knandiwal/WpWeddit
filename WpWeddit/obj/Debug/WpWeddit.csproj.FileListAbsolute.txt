@@ -1,0 +1,14 @@
+C:\p\WpWeddit\WpWeddit\Bin\Debug\ApplicationIcon.png
+C:\p\WpWeddit\WpWeddit\Bin\Debug\Background.png
+C:\p\WpWeddit\WpWeddit\Bin\Debug\WpWeddit.dll
+C:\p\WpWeddit\WpWeddit\Bin\Debug\WpWeddit.pdb
+C:\p\WpWeddit\WpWeddit\Bin\Debug\AppManifest.xaml
+C:\p\WpWeddit\WpWeddit\Bin\Debug\WpWeddit.xap
+C:\p\WpWeddit\WpWeddit\Bin\Debug\WP7CordovaClassLib.dll
+C:\p\WpWeddit\WpWeddit\obj\Debug\ResolveAssemblyReference.cache
+C:\p\WpWeddit\WpWeddit\obj\Debug\App.g.i.cs
+C:\p\WpWeddit\WpWeddit\obj\Debug\MainPage.g.i.cs
+C:\p\WpWeddit\WpWeddit\obj\Debug\WpWeddit.g.resources
+C:\p\WpWeddit\WpWeddit\obj\Debug\WpWeddit.dll
+C:\p\WpWeddit\WpWeddit\obj\Debug\WpWeddit.pdb
+C:\p\WpWeddit\WpWeddit\obj\Debug\XapCacheFile.xml
