@@ -10,7 +10,9 @@
   window.hello = "terve enginesta";
 
   window.log = function() {
-    alert(arguments[0]);
+    if (this.console) {
+      console.log(Array.prototype.slice.call(arguments));
+    }
   };
 
   window.hello = "terve enginesta2";
@@ -20,28 +22,37 @@
     function App() {}
 
     App.prototype.start = function() {
-      var ge, mg, mv, reng, tg,
+      var createGroups, ge, mg, mv, reng, tg,
         _this = this;
+      log(21);
       $("div[data-role=page]").page();
       this.topicGroups = new RTopicGroupList;
-      this.topicGroups.fetch();
-      if (!this.topicGroups.length) {
-        _.delay((function() {
-          return $.mobile.changePage("#pagesetupwizard");
-        }), 500);
-      }
-      $("#btnWizardCreate").on("click", function() {
+      this.tgview = tg = new RTopicGroupView;
+      createGroups = function() {
+        log("creating");
+        log(34, _this.tgview);
         _this.tgview.addTg("Casual", ["frontpage", "pics", "fffffffuuuuuuuuuuuu", "funny", "AdviceAnimals"]);
+        log(36);
         _this.tgview.addTg("Code", ["programming", "webdev", "javascript", "web_design", "html5", "coffeescript", "python"]);
+        return log(35);
+      };
+      $("#btnWizardCreate").on("click", function() {
+        createGroups();
         return $("#pagesetupwizard").dialog("close");
       });
       $("#pagepreview").on("click", function() {
         $.mobile.changePage("#pagemain");
         return $("#previewIframe").attr("src", "");
       });
+      log(48);
       this.shownCategories = new RCatList;
+      log(51);
       root.redditengine = reng = new RedditEngine();
-      this.tgview = tg = new RTopicGroupView;
+      log(53);
+      if (!this.topicGroups.length) {
+        createGroups();
+      }
+      log(63);
       this.tgview.render();
       this.mainview = mv = new RCatListView;
       this.vManageGroups = mg = new VManageGroups;
@@ -144,8 +155,6 @@
       return RTopicGroupList.__super__.constructor.apply(this, arguments);
     }
 
-    RTopicGroupList.prototype.localStorage = new Store("topicgroups");
-
     RTopicGroupList.prototype.model = RTopicGroup;
 
     return RTopicGroupList;
@@ -167,14 +176,16 @@
     RTopicGroupView.prototype.initialize = function() {
       var pat,
         _this = this;
+      log(136);
       pat = $("#topic-group-template").html();
       this.template = Handlebars.compile(pat);
       this.tglist = app.topicGroups;
-      return this.tglist.bind("change remove", function() {
+      this.tglist.bind("change remove", function() {
         var args;
         args = 1 <= arguments.length ? __slice.call(arguments, 0) : [];
         return _this.render();
       });
+      return log(143);
     };
 
     RTopicGroupView.prototype.render = function() {
@@ -192,10 +203,15 @@
     };
 
     RTopicGroupView.prototype.addTg = function(name, topics) {
-      return this.tglist.create({
+      var m;
+      log(154);
+      m = new Backbone.Model({
         groupName: name,
         topics: topics
       });
+      log(157);
+      this.tglist.add(m);
+      return log(158);
     };
 
     RTopicGroupView.prototype.makeCurrent = function(elem) {
@@ -344,10 +360,7 @@
     };
 
     RCatView.prototype.openWindow = function(url) {
-      var fr;
-      fr = $("#previewIframe");
-      fr.attr("src", url);
-      return $.mobile.changePage("#pagepreview");
+      return window.open(url);
     };
 
     RCatView.prototype.doSelect = function(ev) {
@@ -660,7 +673,6 @@
   $(function() {
     window.hello = "terve enginesta6";
     log("starting up");
-    app.start();
     return window.hello = "terve enginesta7";
   });
 

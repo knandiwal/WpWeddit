@@ -8,11 +8,13 @@
 // persistence. Models are given GUIDS, and saved into a JSON object. Simple
 // as that.
 
+window.hello = "terve bb 1";
 // Hold reference to Underscore.js and Backbone.js in the closure in order
 // to make things work even if they are removed from the global namespace
 var _ = this._;
 var Backbone = this.Backbone;
 
+window.hello = "terve bb 2";
 // Generate four random hex digits.
 function S4() {
    return (((1+Math.random())*0x10000)|0).toString(16).substring(1);
@@ -26,12 +28,17 @@ function guid() {
 // Our Store is represented by a single JS object in *localStorage*. Create it
 // with a meaningful name, like the name you'd give a table.
 // window.Store is deprectated, use Backbone.LocalStorage instead
+window.hello = "terve bb 3";
 Backbone.LocalStorage = window.Store = function(name) {
+   window.hello = "terve bb 5";
   this.name = name;
   var store = this.localStorage().getItem(this.name);
+  window.hello = "terve bb 6";
   this.records = (store && store.split(",")) || [];
+  window.hello = "terve bb 7";
 };
 
+window.hello = "terve bb 4";
 _.extend(Backbone.LocalStorage.prototype, {
 
   // Save the current state of the **Store** to *localStorage*.

@@ -12,16 +12,13 @@ var app = {
 				
 
                 
-				console.log("Hello world!");
-                console.log(window.hello);
-				console.log(window.Store)
-        
-
-		
+		console.log("Hello world!");
+		console.log(window.hello);
 		console.log("prestart");
 		console.log(window.redditapp);
+		window.redditapp.start()
 
-		window.redditapp.start();
+		//window.redditapp.start();
 		console.log("poststart");
 		app.report('deviceready');
     },

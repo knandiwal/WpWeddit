@@ -6,9 +6,9 @@ window.hello = "terve enginesta"
 #console.log "Parsing redditengine!!!"
 
 window.log = ->
-	alert arguments[0]
+	#alert arguments[0]
 	#console.log Array::slice.call arguments 
-	#console.log Array::slice.call arguments if @console
+	console.log Array::slice.call arguments if @console
 	return
 
 
@@ -18,21 +18,30 @@ class App
     start: ->
 
 
+        log 21
         $("div[data-role=page]").page()
 
         @topicGroups = new RTopicGroupList
         
-        @topicGroups.fetch()
-        
-        if not @topicGroups.length
-            _.delay (=>                              
-                $.mobile.changePage "#pagesetupwizard"), 500
+        #@topicGroups.fetch()
+
+
+        @tgview = tg = new RTopicGroupView        
                 
-                
-                  
-        $("#btnWizardCreate").on "click", =>                        
+             
+        createGroups = =>            
+            log "creating"
+            log 34,@tgview
             @tgview.addTg "Casual",["frontpage", "pics", "fffffffuuuuuuuuuuuu", "funny", "AdviceAnimals"]
+            log 36
             @tgview.addTg "Code",["programming", "webdev", "javascript", "web_design", "html5", "coffeescript", "python"]
+            log 35
+	
+        
+
+	        
+        $("#btnWizardCreate").on "click", =>
+            createGroups()
             $("#pagesetupwizard").dialog("close")
             
 
@@ -40,14 +49,24 @@ class App
             $.mobile.changePage "#pagemain"
             $("#previewIframe").attr "src", ""
             
+        log 48
         @shownCategories = new RCatList
         
+        log 51
         root.redditengine = reng = new RedditEngine()
 
-        @tgview = tg = new RTopicGroupView
+        log 53
+
         #tg.addTg "Funny stuff", ["pics", "fffffffuuuuuuuuuuuu"]
         #tg.addTg "Programming", ["javascript", "html5", "coffeescript"]
         
+        if not @topicGroups.length
+            
+            createGroups()
+            #_.delay (=>                              
+            #    $.mobile.changePage "#pagesetupwizard"), 500
+
+        log 63
         #@topicGroups.sync()
         @tgview.render()
 
@@ -105,7 +124,7 @@ class RTopicGroup extends Backbone.Model
 window.hello = "terve enginesta11.1"
 
 class RTopicGroupList extends Backbone.Collection
-    localStorage: new Store("topicgroups")
+    #localStorage: new Store("topicgroups")
     model: RTopicGroup
     
 window.hello = "terve enginesta12"
@@ -114,11 +133,14 @@ class RTopicGroupView extends Backbone.View
     el: "#topic-group-area"
     
     initialize: ->
+        log 136
         pat = $("#topic-group-template").html()
         @template = Handlebars.compile pat        
         @tglist = app.topicGroups
         @tglist.bind "change remove", (args...) =>            
             @render()
+            
+        log 143
         
     render: ->
         @$el.empty()
@@ -133,10 +155,12 @@ class RTopicGroupView extends Backbone.View
             @$el.append rend
             
     addTg: (name, topics) ->
-        
-        @tglist.create groupName: name, topics: topics
-        #m = new Backbone.Model 
-        #@tglist.add m
+        log 154
+        #@tglist.create groupName: name, topics: topics
+        m = new Backbone.Model groupName: name, topics: topics
+        log 157
+        @tglist.add m
+        log 158
 
     makeCurrent: (elem) ->
         $(".tg-current-choice").removeClass "tg-current-choice"
@@ -228,13 +252,13 @@ class RCatView extends Backbone.View
         
         
     openWindow: (url) ->
-        fr = $("#previewIframe")
-        fr.attr "src", url
-        $.mobile.changePage "#pagepreview"
+        #fr = $("#previewIframe")
+        #fr.attr "src", url
+        #$.mobile.changePage "#pagepreview"
         
         #resizeIframeWidth(fr.get(0))
         
-        #window.open url
+        window.open url
         
     doSelect: (ev) ->
         
@@ -521,6 +545,6 @@ window.hello = "terve enginesta5"
 $ ->
     window.hello = "terve enginesta6"
     log "starting up"
-    app.start()
+    #app.start()
     window.hello = "terve enginesta7"
     
